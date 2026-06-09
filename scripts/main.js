@@ -250,18 +250,34 @@ document.addEventListener('DOMContentLoaded', () => {
   // Form submit
   const formEl = $('#consultation-form');
   const successEl = $('#form-success');
-  const btnSubmit = document.getElementById('btn-submit');
   formEl.addEventListener('submit', e => {
     e.preventDefault();
     const originalText = btnSubmit.textContent;
     btnSubmit.disabled = true;
     btnSubmit.textContent = 'Sending…';
-    emailjs.sendForm('service_nj0f268', 'template_ehysxdw', formEl)
+
+    const selectedServices = [...$$('input[name="service"]:checked', formEl)]
+      .map(cb => cb.value).join(', ') || 'None selected';
+
+    const templateParams = {
+      to_email:  'info@aeseoconsultant.com',
+      full_name: formEl.querySelector('#full-name').value,
+      email:     formEl.querySelector('#email').value,
+      phone:     formEl.querySelector('#phone').value || 'N/A',
+      company:   formEl.querySelector('#company').value || 'N/A',
+      services:  selectedServices,
+      budget:    formEl.querySelector('#budget').value || 'N/A',
+      timeline:  formEl.querySelector('#timeline').value || 'N/A',
+      message:   formEl.querySelector('#message').value || 'N/A',
+    };
+
+    emailjs.send('service_nj0f268', 'template_ehysxdw', templateParams)
       .then(() => {
         formEl.style.display = 'none';
         successEl.classList.add('visible');
       })
-      .catch(() => {
+      .catch(err => {
+        console.error('EmailJS error:', err);
         btnSubmit.disabled = false;
         btnSubmit.textContent = originalText;
         alert('Something went wrong. Please try again or email us directly at info@aeseoconsultant.com');
