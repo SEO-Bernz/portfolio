@@ -23,7 +23,7 @@ const SITE_CONFIG = {
 
   // ── Section 01: SEO Services ─────────────────────────────
   websitePackages: {
-    sectionNumber: "01",
+    sectionNumber: "",
     title: "SEO Services",
     subtitle: "Ethical, results-driven SEO tailored to your business goals.",
     packages: [
@@ -44,8 +44,8 @@ const SITE_CONFIG = {
       },
       {
         name: "Growth SEO",
-        price: "$299",
-        monthly: "$299/mo",
+        price: "$199",
+        monthly: "$199/mo",
         popular: true,
         description: "Comprehensive SEO with commitment to increase organic traffic and lead growth.",
         features: [
@@ -60,8 +60,8 @@ const SITE_CONFIG = {
       },
       {
         name: "WEBSITE + SEO",
-        price: "$1200+",
-        monthly: "$1200+/mo",
+        price: "$749+",
+        monthly: "$749+/mo",
         popular: false,
         description: "Advanced SEO strategy + custom built website for highly competitive industries.",
         features: [
@@ -80,7 +80,7 @@ const SITE_CONFIG = {
 
   // ── Section 04: SEO Audit & Strategy ────────────────────
   assessment: {
-    sectionNumber: "04",
+    sectionNumber: "",
     title: "SEO Audit & Strategy",
     subtitle: "One-time investment. Actionable clarity.",
     price: "$499",
@@ -118,7 +118,7 @@ const SITE_CONFIG = {
 
   // ── Section 05: White Hat SEO Approach ──────────────────
   crm: {
-    sectionNumber: "05",
+    sectionNumber: "",
     title: "White Hat SEO Approach",
     subtitle: "Sustainable rankings. Zero penalties.",
     description:
