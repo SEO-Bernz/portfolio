@@ -180,10 +180,11 @@ button { cursor: pointer; font-family: inherit; }
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+  overflow: visible;
 }
 
 .logo-img {
-  height: 44px;
+  height: 150px;
   width: auto;
   display: block;
 }
@@ -1379,7 +1380,7 @@ textarea { resize: vertical; min-height: 100px; }
 }
 
 .footer-logo .logo-img {
-  height: 64px;
+  height: 150px;
 }
 
 .footer-tagline {
