@@ -250,10 +250,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Form submit
   const formEl = $('#consultation-form');
   const successEl = $('#form-success');
+  const btnSubmit = document.getElementById('btn-submit');
   formEl.addEventListener('submit', e => {
     e.preventDefault();
-    formEl.style.display = 'none';
-    successEl.classList.add('visible');
+    const originalText = btnSubmit.textContent;
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Sending…';
+    emailjs.sendForm('service_nj0f268', 'template_ehysxdw', formEl)
+      .then(() => {
+        formEl.style.display = 'none';
+        successEl.classList.add('visible');
+      })
+      .catch(() => {
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = originalText;
+        alert('Something went wrong. Please try again or email us directly at info@aeseoconsultant.com');
+      });
   });
 
   updateStepUI();
